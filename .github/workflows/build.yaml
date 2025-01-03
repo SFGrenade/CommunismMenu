@@ -60,7 +60,7 @@ jobs:
         # this assumes that an MSBuild task that writes the SHA256 of the zip file to SHA.txt, and the mod version (usually
         # the same as the assembly version) to version.txt. The contents of these files are read to step outputs for use in release
         run: |
-          $sha = (Get-Content artifacts/Publish-Master/CommunismMenu/SHA.txt)[3]
+          $sha = (Get-Content artifacts/Publish-Master/CommunistMenu/SHA.txt)[3]
           $ver = "${{  github.ref_name }}"
           echo "archiveHash=$sha" >> $env:GITHUB_OUTPUT
           echo "buildVersion=$ver" >> $env:GITHUB_OUTPUT
@@ -73,12 +73,12 @@ jobs:
           fail_on_unmatched_files: true
           tag_name: ${{ steps.details.outputs.buildVersion }}
           body: |
-            SHA256 of CommunismMenu.zip: ${{ steps.details.outputs.archiveHash }}  
+            SHA256 of CommunistMenu.zip: ${{ steps.details.outputs.archiveHash }}  
             Attachments:  
-            - CommunismMenu.zip
+            - CommunistMenu.zip
               - to be used for the ModInstaller
-            - CommunismMenu.dll
-              - the mod, also inside CommunismMenu.zip
+            - CommunistMenu.dll
+              - the mod, also inside CommunistMenu.zip
           files: |
-            artifacts/Publish-Master/CommunismMenu/CommunismMenu.zip
-            artifacts/Publish-Master/CommunismMenu/CommunismMenu.dll
+            artifacts/Publish-Master/CommunistMenu/CommunistMenu.zip
+            artifacts/Publish-Master/CommunistMenu/CommunistMenu.dll
